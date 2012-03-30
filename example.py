@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 """
-@author: Geir Arne Waagb�
+@author: Geir Arne Waagbø
 """
 
 import mapWRF
