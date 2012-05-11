@@ -61,26 +61,6 @@ def skewTPlot(nest,time):
     plt.show()
     plt.close()
 
-#    plt.figure()
-#    plt.axis([200,350,105000,P_top])
-#    plt.xlabel('Potensiell temperatur ($^{\circ}\! C$)')
-#    xticks = np.arange(200,351,5)
-#    plt.xticks(xticks,['' if tick%10!=0 else str(tick) for tick in xticks])
-#    plt.ylabel('Trykk (hPa)')
-#    yticks = np.arange(10**5,10**4-1,-10**4)
-#    plt.yticks(yticks,yticks/100)
-#
-#    theta = nc.variables['T'][time,:,y,x] + T_base
-#    theta = theta*(P/P_bot)**kappa
-#    #plt.semilogy(theta, P, basey=math.e, color = 'black', linestyle='solid', linewidth = 1.5)
-#    plt.plot(theta, P, color = 'black', linestyle='solid', linewidth = 1.5)
-#    
-#
-#    plt.show()
-#    plt.close()
-   
-
-
 def _skewnessTerm(P):
     return skewness * np.log(P_bot/P)
 
