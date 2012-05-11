@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 """
-@author: Geir Arne Waagbø
+@author Geir Arne Waagbø
+@see http://code.google.com/p/pywrfplot/
 """
 import pyplot as plt
 from numpy import arange
@@ -8,7 +9,7 @@ from numpy import arange
 from pywrfplotParams import *
 from pywrfplotUtils import *
 
-def tzCloudPlot(nest,plotMetar=False):
+def tzCloudPlot(nest,plotMetar=False,offset=0):
     nc = openWRF(nest)
     Nx,Ny,Nz,_longs,_lats,_dx,_dy,x_nr,y_nr = getDimensions(nc)
     
@@ -32,7 +33,7 @@ def tzCloudPlot(nest,plotMetar=False):
 
     for s in [u'Snø','Regn']:
         plt.figure()
-        plt.axis([0,Nt-1,0.0,z_max])
+        plt.axis([-offset,Nt-1,0.0,z_max])
         grid = np.reshape(np.tile(arange(Nt),Nz),(Nz,-1))
         if (s==u"Snø"):
             var = qsnow_tz
@@ -48,7 +49,7 @@ def tzCloudPlot(nest,plotMetar=False):
         plt.colorbar()
         cs = plt.contour(grid, heighthalf_tz, T_tz-T_zero, temp_int,colors='black',linestyles='solid')
         plt.clabel(cs, inline=1,  fmt='%1.0f', fontsize=12,colors='black')
-        plt.fill_between(arange(Nt),heightground_t,0,facecolor='lightgrey')
+        plt.fill_between(arange(-offset,Nt),heightground_t[0],0,facecolor='lightgrey')
         if plotMetar:
             _metar()
         print s + ' ($g/m^3$)'
@@ -57,8 +58,6 @@ def tzCloudPlot(nest,plotMetar=False):
         plt.yticks(np.arange(0,z_max,dz), fontsize='small')
         plt.show()
         plt.close()   
-
-
         
     fig = plt.figure()
     ax1 = fig.add_subplot(111)

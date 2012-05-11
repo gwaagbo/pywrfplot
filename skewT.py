@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 """
  Plots skewT-lnP-diagram from WRF-output file.
- @author: Geir Arne Waagbø
+@author Geir Arne Waagbø
+@see http://code.google.com/p/pywrfplot/
  
  Formulas taken from Rogers&Yau: A short course in cloud physics (Third edition)
  Some inspiration from:

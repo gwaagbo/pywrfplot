@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 """
-@author: Geir Arne Waagbø
+@author Geir Arne Waagbø
+@see http://code.google.com/p/pywrfplot/
 """
 import pyplot as plt
 import numpy as np
